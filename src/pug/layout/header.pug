@@ -1,0 +1,14 @@
+- const listItemMenu = ["Product", "Features", "Reviews", "Pricing", "FAQ", "DOWNLOAD"]
+header.header
+    .container
+        nav.header__menu
+            h1.header__menu-logo Connect.
+            i.fas.fa-bars.header__menu-collapse.d-none
+            ul.header__menu-list
+                each item in listItemMenu
+                    if (item==="DOWNLOAD")
+                        li.list__item.btn.list__item--download
+                            +link('#', 'DOWNLOAD')(class="list__item-link")
+                    else
+                        li.list__item
+                            +link('#', item)(class="list__item-link")

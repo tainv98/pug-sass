@@ -1,0 +1,54 @@
+.banner {
+    @include paddingY(15rem, 10rem);
+    background-color: $bg-color;
+    @include maxWidth($grid__bp-md) {
+        @include paddingY(10rem, 5rem);
+    }
+    &__inner {
+        @include flexbox(null,center);
+        &-content {
+            @include maxWidth($grid__bp-md) {
+                order:1;
+                text-align: center;
+            }
+        }
+
+        .content__slogan {
+            font-size: 1.6rem;
+            font-weight: 600;
+        }
+
+        .content__title {
+            font-size: 3.6rem;
+            font-weight: 800;
+            line-height: 1.2;
+            @include maxWidth($grid__bp-md) {
+                font-size: 2.4rem;
+            }
+        }
+
+        .content__cta {
+            @include flexbox(null, null, null, wrap);
+            margin-bottom: 2rem;
+            @include maxWidth($grid__bp-md) {
+                justify-content: center;
+            }
+            a:first-child {
+                margin-right: 2rem;
+               @include maxWidth($grid__bp-sm) {
+                   margin-right: 0;
+                   margin-bottom: 1rem;
+               }
+            }
+        }
+
+        .content__note {
+            font-size: 1.3rem;
+            font-weight: 300;
+            line-height: 1.5;
+        }
+
+        &-img {
+        }
+    }
+}

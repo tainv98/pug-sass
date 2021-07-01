@@ -1,0 +1,29 @@
+mixin link(href, name)
+    a(class!=attributes.class href=href)= name
+
+mixin heading(item)
+    .heading(class!=attributes.classHead)
+        h3(class = item.label ? "heading__label" : "heading__label d-none" class!=attributes.classLabel)= item.label
+            h1.heading__title= item.title
+            p(class = item.desc ? "heading__desc" : "heading__desc d-none")= item.desc
+
+mixin featureContent(img,title,desc,lists)
+    article.features__inner-content(class!=attributes.class)
+        .content__img
+            img(src=`./assets/images/${img}.png`, alt="", srcset="")
+        .content__text
+            h2.content__text-title= title
+            p.content__text-desc= desc
+            ul.content__text-list
+                each item in lists
+                    li.list__item
+                        img(src="./assets/icons/tick.svg", alt="", srcset="").list__item-icon
+                        p.list__item-text= item
+mixin cardPricing(title,subTitle,imageSrc,price,expiry,type)
+    article.content__card
+        h2.content__card-title= title
+        p.content__card-subTitle= subTitle
+        img(src=`./assets/images/${imageSrc}.png`, alt="", srcset="")
+        span.content__card-price= price
+        p.content__card-expiry= expiry
+        +link('#', `${type =="premium" ? "Subscribe" : "download"}`)(class=`btn ${type =="premium" ? "btn--blue" : "btn--download"}`)

@@ -1,0 +1,12 @@
+footer.footer
+    .container
+        nav.footer__menu
+            h1.footer__menu-logo Connect.
+            ul.footer__menu-list
+                each item in menuFooter
+                    li.list__item
+                        +link('#', item)(class="list__item-link")
+            ul.footer__menu-social
+                each item in [1,2,3,4]
+                    li.social__item
+                        img(src=`./assets/icons/i${item}.png`, alt="", srcset="")

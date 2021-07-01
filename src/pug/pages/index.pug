@@ -1,0 +1,88 @@
+extends ../layout/layout.pug
+include ../components/mixins
+block content
+    section.banner
+        .container
+            .banner__inner.container__row
+                .banner__inner-content.container__col-12.container__col-md-6
+                    h3.content__slogan Launch your product
+                    h1.content__title Connect better with interactive stream.
+                    .content__cta
+                        +link('#', 'see more')(class="btn btn--blue")
+                        +link('#', 'download')(class="btn btn--download")
+                    p.content__note Free unrestricted usage for 14 days.<br/>No credit card required*
+                figure.banner__inner-img.container__col-12.container__col-md-6
+                    img(src="./assets/images/head.png", alt="", srcset="")
+    section.about
+        .container
+            .about__inner
+                +heading(listHeading.about)(classHead="heading--about")
+                .about__inner-content
+                    ul.content__list.container__row
+                        each item in aboutLists
+                            li(class= `content__list-item container__col-12 container__col-md-4 ${item.bg}`)
+                                figure.item__img
+                                    img(src=item.imageSrc, alt="", srcset="")
+                                h2.item__title= item.title
+                                p.item__desc= item.desc
+    section.features
+        .container
+            .features__inner
+                +featureContent("support","Data Sharing.","When you get staright to the point the presentation looks attractive on your web pages.",featureLists)
+                +featureContent("write","High Definition","When you get staright to the point the presentation looks attractive on your web pages.",featureLists)(class="features__inner-content--reverse")
+    section.result
+        .container
+            .result__inner
+                +heading(listHeading.result)(classHead="heading--result" classLabel="heading__label--result")
+                ul.result__inner-list
+                    each item in resultLists
+                        li.list__item
+                            img(src=item.imageSrc, alt="", srcset="")
+                            h2.list__item-percent= `${item.percent}%` 
+                            p.list__item-name= item.name
+    section.review
+        .container
+            .review__inner
+                .review__inner-content
+                    .content__intro
+                        h2.content__intro-title Stories from our customers
+                        p.content__intro-desc When you get staright to the point the presentation looks attractive.
+                    ul.content__list
+                        li.content__list-item
+                            h2.item__message
+                                img(src="./assets/images/quote.svg", alt="", srcset="" class="item__message-img")
+                                | Pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. We use Connect for key for easy and seamless weekly communication with our clients.
+                            .item__author
+                                .item__author-avt
+                                    img(src="./assets/images/avt1.png", alt="", srcset="")
+                                .item__author-info
+                                    h4.info__name Marty McFly
+                                    p.info__job Head of OP, 
+                                        +link("#","Future LLC")(class="d-inline")
+    section.pricing
+        .container
+            .pricing__inner
+                +heading(listHeading.pricing)(classHead="heading--pricing")
+                .pricing__inner-content
+                    +cardPricing("Basic Free","Limited features", "f1","Free","One year","free")
+                    +cardPricing("Premium","Unlimited Lifetime","f3","$99.99", "Lifetime","premium")
+                p.pricing__inner-note * Refund requests can be accepted with in 10 days of the purchase.
+    section.faq
+        .container
+            .faq__inner
+                .faq__inner-content
+                    .content__intro
+                        h2.content__intro-title Frequently Asked Queries
+                        p.content__intro-desc Pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid.
+                    .content__question
+                        ul.content__question-list
+                            each item in questionLists
+                                li.list__item
+                                    h4.list__item-title= item
+    section.trial
+        .container
+            .trial__inner
+                +heading(listHeading.cta)(classHead="heading--trial")
+                .trial__inner-form
+                    input(type="text", placeholder="Enter email address").form__input
+                    button.btn.btn--signup Sign up

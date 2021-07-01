@@ -1,0 +1,40 @@
+.footer {
+    padding: 3rem 0;
+    font-size: 1.2rem;
+    font-family: $primary-font;
+    background-color: $bg-color;
+    &__menu {
+        @include flexbox(space-between, center);
+        @include maxWidth($grid__bp-md) {
+            flex-direction: column;
+        }
+        &-logo {
+            margin-bottom: 0;
+            font-size: 1.8rem;
+            font-weight: 400;
+            line-height: 1.4;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: $primary-color;
+        }
+        &-list {
+            @include flexbox(center, center,null,wrap);
+            height: 8rem;
+        }
+        &-social {
+            @include flexbox(flex-end);
+        }
+        .social__item {
+            width: 3rem;
+            margin-left: 2rem;
+        }
+        .list__item {
+            &-link {
+                padding: 0.5rem 1rem;
+                font-weight: 400;
+                font-size: 1.6rem;
+                color: $gray-color;
+            }
+        }
+    }
+}

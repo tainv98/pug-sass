@@ -1,0 +1,64 @@
+.header {
+  @include fixed();
+  @include size(100%, 8rem);
+  font-family: $primary-font;
+  font-size: 1.2rem;
+  background-color: $white-color;
+  z-index: 999;
+  &__menu {
+    @include relative;
+    @include flexbox(space-between,center);
+    min-height: 8rem;
+    &-logo {
+      margin-bottom: 0;
+      font-size: 2rem;
+      font-weight: 600;
+      color: $dark-color;
+    }
+    &-list {
+      @include flexbox(null, center);
+      height:100%;
+      @include maxWidth($grid__bp-md) {
+        @include absolute(100%,0,0,50%);
+        width: 100vw;
+        height:40vh;
+        flex-direction: column;
+        @include css3-prefix(transform,translateX(-50%));
+        background-color: $white-color;
+        display: none;
+      }
+    }
+    &-collapse {
+      font-size: 2.2rem;
+      @include maxWidth($grid__bp-md) {
+        display: block;
+      }
+    }
+    .list__item {
+      margin-left: 1.5rem;
+      @include maxWidth($grid__bp-md) {
+        margin-left: 0;
+        margin-bottom: 2rem;
+      }
+      &-link {
+        padding: 0.5rem;
+        font-weight: 600;
+        font-size: 1.4rem;
+        color: $gray-color;
+      }
+      &--download {
+        padding: 0.5rem 1.5rem;
+        a {
+          color: $dark-color;
+        }
+        &:hover {
+          border-color: $primary-color;
+          background-color: $primary-color;
+          a {
+            color: $white-color;
+          }
+        }
+      }
+    }
+  }
+}

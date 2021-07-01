@@ -1,0 +1,31 @@
+.content__card {
+    padding: 5rem;
+    @include marginX(1.5rem);
+    text-align: center;
+    background-color: $bg-color;
+    &-title {
+        font-size: 2.4rem;
+    }
+    &-subTitle {
+        font-size: 1.6rem;
+        font-weight: 300;
+        color: $gray-light-color;
+    }
+    img {
+        width: 47%;
+        @include marginAuto;
+        margin-bottom: 4rem;
+    }
+    &-price {
+        display: inline-block;
+        margin-bottom: 1.5rem;
+        font-size: 4.2rem;
+        font-weight: 300;
+        color: $gray-dark-color;
+    }
+    &-expiry {
+        margin-bottom: 2rem;
+        font-weight: 300;
+        color: $gray-dark-color;
+    }
+}

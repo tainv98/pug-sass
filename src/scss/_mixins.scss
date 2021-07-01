@@ -1,0 +1,96 @@
+@mixin size($width, $height: $width) {
+    width: $width;
+    height: $height;
+}
+@mixin flexbox(
+    $justify: null,
+    $align: null,
+    $direction: null,
+    $wrap: null,
+    $order: null
+){
+    display: flex;
+    align-items: $align;
+    justify-content: $justify;
+    flex-direction: $direction;
+    flex-wrap: $wrap;
+    order: $order;
+}
+@mixin flexCenter() {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+@mixin position($position, $top: null, $right: null, $bottom: null, $left: null) {
+    position: $position;
+    top: $top;
+    right: $right;
+    bottom: $bottom;
+    left: $left;
+}
+@mixin absolute($args...) {
+    @include position(absolute, $args...);
+}
+@mixin relative($args...) {
+    @include position(relative, $args...);
+}
+@mixin fixed($args...) {
+    @include position(fixed, $args...);
+}
+
+@mixin marginAuto($direction:"X") {
+    @if $direction == "X" {
+        margin-left: auto;
+        margin-right: auto;
+    }
+    @if($direction == "Y") {
+        margin-top: auto;
+        margin-right: auto;
+    }
+}
+@mixin paddingY($top,$bottom: $top) {
+    padding-top: $top;
+    padding-bottom: $bottom;
+}
+@mixin paddingX($left, $right: $left) {
+    padding-left: $left;
+    padding-right: $right;
+}
+@mixin marginY($top, $bottom: $top) {
+    margin-top: $top;
+    margin-bottom: $bottom;
+}
+
+@mixin marginX($left, $right: $left) {
+    margin-left: $left;
+    margin-right: $right;
+}
+
+@mixin maxWidth($breakpoint) {
+    @media only screen and (max-width: $breakpoint * 1px) {
+        @content;
+    }
+}
+@mixin minWidth($breakpoint) {
+    @media only screen and (min-width: $breakpoint * 1px) {
+        @content;
+    }
+}
+@mixin css3-prefix($prop, $value) {
+    -webkit-#{$prop}: #{$value};
+    -moz-#{$prop}: #{$value};
+    -ms-#{$prop}: #{$value};
+    -o-#{$prop}: #{$value};
+    #{$prop}: #{$value};
+}
+@mixin keyframes($name) {
+    @-webkit-keyframes #{$name} {
+        @content;
+    }
+    @-moz-keyframes #{$name} {
+        @content;
+    }
+    @keyframes #{$name} {
+        @content;
+    }
+}
