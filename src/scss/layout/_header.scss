@@ -8,24 +8,28 @@
   &__menu {
     @include relative;
     @include flexbox(space-between,center);
-    min-height: 8rem;
+    min-height: 8rem; 
     &-logo {
       margin-bottom: 0;
       font-size: 2rem;
       font-weight: 600;
       color: $dark-color;
     }
+    #checked:checked ~ &-list {
+      height: 35vh;
+    }
     &-list {
       @include flexbox(null, center);
       height:100%;
       @include maxWidth($grid__bp-md) {
         @include absolute(100%,0,0,50%);
-        width: 100vw;
-        height:40vh;
         flex-direction: column;
-        @include css3-prefix(transform,translateX(-50%));
+        width: 100vw;
+        height:0;
         background-color: $white-color;
-        display: none;
+        overflow: hidden;
+        @include css3-prefix(transform, translateX(-50%));
+        transition: all .5s;
       }
     }
     &-collapse {

@@ -3,7 +3,9 @@ header.header
     .container
         nav.header__menu
             h1.header__menu-logo Connect.
-            i.fas.fa-bars.header__menu-collapse.d-none
+            label(for="checked")
+                i.fas.fa-bars.header__menu-collapse.d-none
+            input#checked.header__menu-check.d-none(type="checkbox")
             ul.header__menu-list
                 each item in listItemMenu
                     if (item==="DOWNLOAD")

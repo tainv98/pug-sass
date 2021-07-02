@@ -134,14 +134,18 @@
             padding: 10rem 5rem;
             @include maxWidth($grid__bp-md) {
                 flex-direction: column;
+                & > * {
+                    width: 100% !important;
+                }
             }
         }
         .content__intro {
             width: 40%; 
-            @include maxWidth($grid__bp-md) {
-                width: 100%;
-            }
             padding-right: 7rem;
+            @include maxWidth($grid__bp-md) {
+                padding-right: 0;
+                margin-bottom: 1.5rem;
+            }
             &-title {
                 font-size: 3.4rem;
                 font-weight: 800;
@@ -155,9 +159,6 @@
         }
         .content__list {
             width: 60%;
-            @include maxWidth($grid__bp-md) {
-                width: 100%;
-            }
             &-item {
                 
             }
@@ -211,7 +212,7 @@
             font-weight: 300;
             font-size: 1.3rem;
         }
-        .content__card {
+        .content__card:not(:last-child) {
             @include maxWidth($grid__bp-sm) {
                 margin-bottom: 3rem;
             }

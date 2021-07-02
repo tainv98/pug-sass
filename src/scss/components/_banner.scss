@@ -33,6 +33,11 @@
             @include maxWidth($grid__bp-md) {
                 justify-content: center;
             }
+            @include maxWidth($grid__bp-sm) {
+                flex-direction: column;
+                width: max-content;
+                @include marginX(auto);
+            }
             a:first-child {
                 margin-right: 2rem;
                @include maxWidth($grid__bp-sm) {
