@@ -32,6 +32,9 @@
             @include flexbox(null, center);
             @include maxWidth($grid__bp-md) {
                 flex-direction: column;
+                & > * {
+                    width: 100%;
+                }
             }
             margin-bottom: 10rem;
             &--reverse {
@@ -47,15 +50,9 @@
         .content__img {
             width: 40%;
             padding-right: 2rem;
-            @include maxWidth($grid__bp-md) {
-                width: 100%;
-            }
         }
         .content__text {
             width: 60%;
-            @include maxWidth($grid__bp-md) {
-                width: 100%;
-            }
             padding-left: 2rem;
             &-title {
                 font-size: 3.6rem;
@@ -90,10 +87,10 @@
 }
 .result {
     padding: 10rem 7rem;
+    background-color: $white-color;
     @include maxWidth($grid__bp-md) {
         padding: 5rem 0;
     }
-    background-color: $white-color;
     &__inner {
         &-list {
             @include flexbox(null,null,null,wrap);
@@ -111,16 +108,13 @@
             }
             img {
                 width: 38%;
+                margin-bottom: 2rem;
                 @include maxWidth($grid__bp-md) {
                     width: 58%;
                 }
-                margin-bottom: 2rem;
             }
             &-percent {
                 font-size: 2.8rem;
-            }
-            &-name {
-
             }
         }
     }
@@ -154,14 +148,9 @@
                     font-size: 2.4rem;
                 }
             }
-            &-desc {
-            }
         }
         .content__list {
             width: 60%;
-            &-item {
-                
-            }
             .item__message {
                 line-height: 1.5;
                 font-size: 1.8rem;
@@ -201,11 +190,11 @@
     &__inner {
         &-content {
             @include flexbox(center);
+            @include marginX(-1.5rem);
+            margin-bottom: 2rem;
             @include maxWidth($grid__bp-sm) {
                 flex-direction: column;
             }
-            @include marginX(-1.5rem);
-            margin-bottom: 2rem;
         }
         &-note {
             text-align: center;
@@ -254,8 +243,8 @@
                 width: 100%
             }
             @include paddingY(3rem);
-            border-bottom: 2px solid rgba(0, 0, 0, .03);
             cursor: pointer;
+            border-bottom: 2px solid rgba(0, 0, 0, .03);
             &::after{
                 @include absolute(50%, 0);
                 content: "+";
